@@ -46,6 +46,11 @@ function generateQuestion() {
 
     return { question, answer };
 }
+function randomOperation() {
+    const operations = ['add', 'subtract', 'multiply'];
+    const index = Math.floor(Math.random() * operations.length);
+    return operations[index];
+}
 
 
 function validateAnswer(questionObj, userAnswer) {
