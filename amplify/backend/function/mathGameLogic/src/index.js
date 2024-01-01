@@ -15,3 +15,11 @@ exports.handler = async (event) => {
         body: JSON.stringify('Hello from Lambd'),
     };
 };
+
+function generateQuestion() {
+    const num1 = Math.floor(Math.random() * 100);
+    const num2 = Math.floor(Math.random() * 100);
+    const question = `${num1} + ${num2}`;
+    const answer = num1 + num2; // Just doing addition for now.
+    return { question, answer };
+}
