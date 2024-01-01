@@ -23,3 +23,13 @@ function generateQuestion() {
     const answer = num1 + num2; // Just doing addition for now.
     return { question, answer };
 }
+
+
+function validateAnswer(questionObj, userAnswer) {
+    const { question, answer } = questionObj;
+
+    return {
+        correct: answer === parseInt(userAnswer),
+        correctAnswer: answer
+    };
+}
