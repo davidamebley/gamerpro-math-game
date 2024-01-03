@@ -22,26 +22,27 @@ exports.handler = async (event) => {
     };
 };
 
-function generateQuestion() {
-    const num1 = Math.floor(Math.random() * 100);
-    const num2 = Math.floor(Math.random() * 100);
+function generateQuestion(difficulty) {
     const operation = randomOperation();
+    let num1, num2, question, answer;
 
-    let question, answer;
     switch (operation) {
         case 'add':
+            [num1, num2] = generateNumbers(difficulty, 100);
             question = `${num1} + ${num2}`;
             answer = num1 + num2;
             break;
         case 'subtract':
+            [num1, num2] = generateNumbers(difficulty, 100);
             question = `${num1} - ${num2}`;
             answer = num1 - num2;
             break;
         case 'multiply':
+            [num1, num2] = generateNumbers(difficulty, 12); // Using smaller range for multiplication
             question = `${num1} * ${num2}`;
             answer = num1 * num2;
             break;
-        // May add more operations here in the future
+        // May add more operations with custom ranges in the future
     }
 
     return { question, answer };
