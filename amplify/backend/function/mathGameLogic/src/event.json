@@ -1,8 +1,8 @@
 {
   "operation": "validateAnswer",
   "question": {
-    "question": "10 + 20",
-    "answer": 30
+    "question": "25 + 25",
+    "answer": 50
   },
-  "userAnswer": "30"
+  "userAnswer": "51"
 }
