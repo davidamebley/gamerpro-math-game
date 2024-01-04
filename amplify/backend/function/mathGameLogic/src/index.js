@@ -53,6 +53,23 @@ function randomOperation() {
     return operations[index];
 }
 
+function generateNumbers(difficulty, maxRange) {
+    let range;
+    switch (difficulty) {
+        case 'easy':
+            range = maxRange / 2; // Easier questions have smaller numbers
+            break;
+        case 'medium':
+            range = maxRange * 0.75;
+            break;
+        case 'hard':
+        default:
+            range = maxRange; // Hard questions use the full range
+    }
+    const num1 = Math.floor(Math.random() * range);
+    const num2 = Math.floor(Math.random() * range);
+    return [num1, num2];
+}
 
 function validateAnswer(questionObj, userAnswer) {
     const { question, answer } = questionObj;
