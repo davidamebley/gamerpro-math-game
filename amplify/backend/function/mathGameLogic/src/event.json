@@ -1,4 +1,8 @@
 {
-  "operation": "generateQuestion",
-  "difficulty": "easy"
+  "operation": "validateAnswer",
+  "question": {
+    "question": "10 + 20",
+    "answer": 30
+  },
+  "userAnswer": "30"
 }
