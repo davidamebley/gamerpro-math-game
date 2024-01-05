@@ -13,7 +13,10 @@
     },
     "categories": {
       "function": {
-        "mathGameLogic": {}
+        "mathGameLogic": {
+          "deploymentBucketName": "amplify-gamerpromathgame-dev-44137-deployment",
+          "s3Key": "amplify-builds/mathGameLogic-4134716d53434f723276-build.zip"
+        }
       }
     }
   }

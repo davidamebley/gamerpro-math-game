@@ -6,5 +6,23 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
+  },
+  "parameters": {
+    "AMPLIFY_function_mathGameLogic_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "mathGameLogic"
+        }
+      ]
+    },
+    "AMPLIFY_function_mathGameLogic_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "mathGameLogic"
+        }
+      ]
+    }
   }
 }
