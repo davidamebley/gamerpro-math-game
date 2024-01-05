@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "paths": {
+    "/questions": {
+      "name": "/questions",
+      "lambdaFunction": "mathGameLogic",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update"
+        ]
+      }
+    }
+  }
+}
