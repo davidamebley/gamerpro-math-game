@@ -1,4 +1,22 @@
 export type AmplifyDependentResourcesAttributes = {
+  "api": {
+    "questions": {
+      "ApiId": "string",
+      "ApiName": "string",
+      "RootUrl": "string"
+    }
+  },
+  "auth": {
+    "gamerpromathgame": {
+      "AppClientID": "string",
+      "AppClientIDWeb": "string",
+      "IdentityPoolId": "string",
+      "IdentityPoolName": "string",
+      "UserPoolArn": "string",
+      "UserPoolId": "string",
+      "UserPoolName": "string"
+    }
+  },
   "function": {
     "mathGameLogic": {
       "Arn": "string",
