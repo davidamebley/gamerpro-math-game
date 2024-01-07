@@ -7,7 +7,7 @@
     linear-gradient(90deg, rgba(100, 100, 255, 0.6) 2px, transparent 2px),
     linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
-  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-size: 25vw 25vw, 25vw 25vw, 5vw 5vw, 5vw 5vw;
   background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
 }
 
@@ -29,7 +29,7 @@
     linear-gradient(63deg, transparent 74%, #ccc 78%),
     linear-gradient(63deg, transparent 34%, #ccc 38%, #ccc 58%, transparent 62%),
     #e0e0e0;
-  background-size: 16px 48px;
+  background-size: 4vh 12vh;
 }
 
 .half-rombes {
@@ -44,7 +44,7 @@
     linear-gradient(115deg, transparent 75%, rgba(255, 255, 255, 0.8) 75%) 7px -15px,
     linear-gradient(245deg, transparent 75%, rgba(255, 255, 255, 0.8) 75%) 7px -15px,
     #a6d3f2;
-  background-size: 15px 30px;
+  background-size: 4vw 8vw;
 }
 
 .starry-night {
@@ -61,7 +61,7 @@
       rgba(255, 255, 255, 0.1) 2px,
       transparent 40px
     );
-  background-size: 600px 600px, 400px 400px, 300px 300px, 200px 200px;
+  background-size: 150vw 150vw, 100vw 100vw, 75vw 75vw, 50vw 50vw;
   background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
 }
 
@@ -90,5 +90,5 @@
       )
       0 64px;
   background-color: #708090;
-  background-size: 80px 160px;
+  background-size: 20vw 40vw;
 }
