@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# GamerPro Math Game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+GamerPro Math Game is a web-based application designed to provide users with an engaging and interactive way to practice basic arithmetic. The game presents a series of math questions (arithmetic problems) that are timed and vary in difficulty. Players are challenged to answer these questions correctly to accumulate points and advance through different levels.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Dynamic Question Generation**: Math questions are generated dynamically, with varying levels of difficulty based on the user's choice.
+- **Timed Challenges**: Each question is timed, adding an element of urgency and enhancing the game's challenge.
+- **Difficulty Levels**: Players can choose between three levels of difficulty - easy, medium, and hard. The number of retries and time limits vary based on the selected difficulty.
+- **Score Accumulation and Leaderboard**: Correct answers result in points being accumulated. High scores are tracked and displayed on a leaderboard.
+- **User Registration**: Players can register with their first name, last name, and a unique username to appear on the leaderboard.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Frontend**: React
+- **Backend**: Node.js, AWS Lambda
+- **Database**: AWS DynamoDB
+- **Additional AWS Services**: AWS Amplify, API Gateway, IAM
+- **Styling**: CSS with responsive design for various devices
 
-### `npm test`
+## Development Setup
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+(TODO: Instructions on setting up the project locally)
 
-### `npm run build`
+## Deployment
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+(TODO: Steps for deploying the application on AWS)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Contributing
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+(TODO: Guidelines for contributing to the project, if applicable)
 
-### `npm run eject`
+## License
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+(TODO: License information, if applicable)
