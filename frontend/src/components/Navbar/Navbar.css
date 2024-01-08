@@ -41,12 +41,21 @@ nav ul li a:focus {
     flex-direction: column;
     align-items: center;
   }
-
   nav ul li {
     margin: 5px 0;
   }
-
   nav ul li a {
     font-size: 1em;
+  }
+}
+
+/* Smaller devices (e.g., smartphones) */
+@media (max-width: 480px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  nav ul li a {
+    font-size: 0.9em;
   }
 }
