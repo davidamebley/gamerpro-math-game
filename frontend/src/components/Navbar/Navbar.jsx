@@ -1,12 +1,14 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
+import './Navbar.css';
 
 const Navbar = () => {
     return (
         <nav>
             <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/game">Game</Link></li>
-                <li><Link to="/leaderboard">Leaderboard</Link></li>
+                <li><NavLink exact to="/" activeClassName="active">Home</NavLink></li>
+                <li><NavLink to="/game" activeClassName="active">Game</NavLink></li>
+                <li><NavLink to="/leaderboard" activeClassName="active">Leaderboard</NavLink></li>
             </ul>
         </nav>
     );
