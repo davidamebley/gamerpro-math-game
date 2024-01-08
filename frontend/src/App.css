@@ -73,3 +73,23 @@ nav ul li a {
     padding: 0.4em 0.8em;
   }
 }
+
+/* Smaller devices (e.g., smartphones) */
+@media (max-width: 480px) {
+  nav ul li a {
+    font-size: 0.9em;
+  }
+
+  .math-expression {
+    font-size: 1em;
+  }
+
+  .math-icon {
+    font-size: 1em;
+  }
+
+  .button {
+    padding: 0.3em 0.6em;
+    font-size: 0.9em;
+  }
+}
