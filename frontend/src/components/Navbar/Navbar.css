@@ -1,0 +1,36 @@
+nav {
+  width: 100%;
+  background: rgba(50, 50, 50, 0.5); /* Semi-transparent background */
+  padding: 1em 0;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul li {
+  margin: 0 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #f8c291;
+  font-size: 1.1em;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+  background-color: #2e86ab;
+  color: white;
+}
