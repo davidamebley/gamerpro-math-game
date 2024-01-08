@@ -7,7 +7,7 @@ import './styles/patterns.css'
 function App() {
   useEffect(() => {
     // Add pattern class to the body
-    document.body.classList.add('weave');
+    document.body.classList.add('starry-night');
   }, []);
 
   return (
