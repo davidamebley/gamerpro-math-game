@@ -49,3 +49,27 @@ nav ul li a {
   font-size: 1.5em;
   margin: 0 0.5em;
 }
+
+/* Mid-range devices (e.g., tablets) */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 5px 0;
+  }
+
+  .math-expression {
+    font-size: 1.2em;
+  }
+
+  .math-icon {
+    font-size: 1.2em;
+  }
+
+  .button {
+    padding: 0.4em 0.8em;
+  }
+}
