@@ -61,8 +61,8 @@
       rgba(255, 255, 255, 0.1) 2px,
       transparent 40px
     );
-  background-size: 150vw 150vw, 100vw 100vw, 75vw 75vw, 50vw 50vw;
-  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+  background-size: 75vw 75vw, 50vw 50vw, 37.5vw 37.5vw, 25vw 25vw;
+  background-position: 0 0, 20px 30px, 65px 135px, 35px 50px;
 }
 
 .weave {
@@ -105,7 +105,8 @@
     background-size: 6vw 12vw;
   }
   .starry-night {
-    background-size: 200vw 200vw, 150vw 150vw, 125vw 125vw, 100vw 100vw;
+    background-size: 100vw 100vw, 75vw 75vw, 62.5vw 62.5vw, 50vw 50vw;
+    background-position: 0 0, 15px 20px, 50px 100px, 25px 35px;
   }
   .weave {
     background-size: 30vw 60vw;
@@ -124,7 +125,8 @@
     background-size: 8vw 16vw;
   }
   .starry-night {
-    background-size: 300vw 300vw, 250vw 250vw, 200vw 200vw, 150vw 150vw;
+    background-size: 150vw 150vw, 125vw 125vw, 100vw 100vw, 75vw 75vw;
+    background-position: 0 0, 10px 15px, 40px 80px, 20px 25px;
   }
   .weave {
     background-size: 40vw 80vw;
