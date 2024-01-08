@@ -92,3 +92,41 @@
   background-color: #708090;
   background-size: 20vw 40vw;
 }
+
+/* Mid-range devices (e.g., tablets) */
+@media (max-width: 768px) {
+  .blueprint-grid {
+    background-size: 35vw 35vw, 35vw 35vw, 7vw 7vw, 7vw 7vw;
+  }
+  .stairs {
+    background-size: 6vh 18vh;
+  }
+  .half-rombes {
+    background-size: 6vw 12vw;
+  }
+  .starry-night {
+    background-size: 200vw 200vw, 150vw 150vw, 125vw 125vw, 100vw 100vw;
+  }
+  .weave {
+    background-size: 30vw 60vw;
+  }
+}
+
+/* Smaller devices (e.g., smartphones) */
+@media (max-width: 480px) {
+  .blueprint-grid {
+    background-size: 50vw 50vw, 50vw 50vw, 10vw 10vw, 10vw 10vw;
+  }
+  .stairs {
+    background-size: 8vh 24vh;
+  }
+  .half-rombes {
+    background-size: 8vw 16vw;
+  }
+  .starry-night {
+    background-size: 300vw 300vw, 250vw 250vw, 200vw 200vw, 150vw 150vw;
+  }
+  .weave {
+    background-size: 40vw 80vw;
+  }
+}
