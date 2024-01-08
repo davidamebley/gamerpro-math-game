@@ -12,8 +12,8 @@ const HomePage = () => {
                 <p>Challenge your math skills and climb the leaderboard.</p>
             </div>
             <div className="navigation-buttons">
-                <Link to="/game" className="button">Start Game</Link>
-                <Link to="/leaderboard" className="button">View Leaderboard</Link>
+                <Link to="/game" className="button" aria-label='Start Game button'>Start Game</Link>
+                <Link to="/leaderboard" className="button" aria-label='View Leaderboard button'>View Leaderboard</Link>
             </div>
         </div>
     );
