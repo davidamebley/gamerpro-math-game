@@ -21,13 +21,20 @@
 }
 
 .navigation-buttons {
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .navigation-buttons .button {
   margin: 10px;
   font-size: 1.2em;
-  padding: 10px 20px;
+  padding: 15px 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Box-shadow transition */
+}
+.navigation-buttons .button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect on hover */
 }
 
 /* Mid-range devices (e.g., tablets) */
