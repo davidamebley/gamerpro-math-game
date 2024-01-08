@@ -35,7 +35,8 @@ nav ul li a.active {
   border-radius: 4px;
 }
 
-nav ul li a:hover {
+nav ul li a:not(.active):hover,
+nav ul li a:not(.active):focus {
   background-color: var(--accent-color);
   color: white;
   border-radius: 4px;
