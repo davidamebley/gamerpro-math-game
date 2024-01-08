@@ -1,4 +1,9 @@
 .home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   text-align: center;
   padding: 20px;
   color: var(--secondary-color);
