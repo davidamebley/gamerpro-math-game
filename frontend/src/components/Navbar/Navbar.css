@@ -31,7 +31,7 @@ nav ul li a {
 
 nav ul li a:hover,
 nav ul li a:focus {
-  background-color: #2e86ab;
+  background-color: var(--primary-color);
   color: white;
 }
 
