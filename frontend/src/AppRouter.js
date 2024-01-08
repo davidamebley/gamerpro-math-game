@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import HomePage from "./pages/HomePage/HomePage";
 import GameInterface from "./pages/GameInterface/GameInterface";
 import Leaderboard from "./pages/Leaderboard/Leaderboard";
+import Footer from "./components/Footer/Footer";
 
 const AppRouter = () => {
     return (
@@ -14,6 +15,7 @@ const AppRouter = () => {
                 <Route path="/game" element={<GameInterface />} />
                 <Route path="/leaderboard" element={<Leaderboard />} />
             </Routes>
+            <Footer />
         </BrowserRouter>
     );
 };
