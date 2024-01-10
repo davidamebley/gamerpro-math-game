@@ -6,7 +6,15 @@
   --mono-font: "Roboto Mono", monospace;
 }
 
+html,
 body {
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+body {
+  position: relative;
   font-family: var(--text-font);
   color: #333;
 }

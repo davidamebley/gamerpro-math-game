@@ -48,7 +48,17 @@
 }
 
 .starry-night {
+  position: relative;
+  overflow: hidden;
   background-color: #333;
+}
+.starry-night::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background-image: radial-gradient(
       white,
       rgba(255, 255, 255, 0.2) 3px,
@@ -61,8 +71,10 @@
       rgba(255, 255, 255, 0.1) 2px,
       transparent 40px
     );
-  background-size: 75vw 75vw, 50vw 50vw, 37.5vw 37.5vw, 25vw 25vw;
-  background-position: 0 0, 20px 30px, 65px 135px, 35px 50px;
+  z-index: -1; /* Ensures the pseudo-element (::before) is behind the content */
+  background-size: 150vw 150vw, 125vw 125vw, 100vw 100vw, 75vw 75vw;
+  background-position: 0 0, 10px 15px, 40px 80px, 20px 25px;
+  /* animation: twinkle 2s infinite alternate; */
 }
 
 .weave {
@@ -91,6 +103,15 @@
       0 64px;
   background-color: #708090;
   background-size: 20vw 40vw;
+}
+
+/* Apply background animation to devices larger than 768px */
+@media (min-width: 769px) {
+  .starry-night::before {
+    background-size: 75vw 75vw, 50vw 50vw, 37.5vw 37.5vw, 25vw 25vw;
+    background-position: 0 0, 20px 30px, 65px 135px, 35px 50px;
+    animation: twinkle 2s infinite alternate;
+  }
 }
 
 /* Mid-range devices (e.g., tablets) */
@@ -130,5 +151,15 @@
   }
   .weave {
     background-size: 40vw 80vw;
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
   }
 }
