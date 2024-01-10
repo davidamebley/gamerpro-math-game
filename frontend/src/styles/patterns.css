@@ -163,3 +163,12 @@
     opacity: 0.5;
   }
 }
+
+@keyframes moveStars {
+  0% {
+    background-position: 0 0, 20px 30px, 65px 135px, 35px 50px;
+  }
+  100% {
+    background-position: 50px 50px, 70px 80px, 115px 185px, 85px 100px;
+  }
+}
