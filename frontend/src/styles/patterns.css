@@ -61,15 +61,23 @@
   left: 0;
   background-image: radial-gradient(
       white,
-      rgba(255, 255, 255, 0.2) 3px,
-      transparent 50px
+      rgba(255, 255, 255, 0.2) 0.1875rem,
+      transparent 3.125rem
     ),
-    radial-gradient(white, rgba(255, 255, 255, 0.15) 2px, transparent 40px),
-    radial-gradient(white, rgba(255, 255, 255, 0.1) 3px, transparent 50px),
+    radial-gradient(
+      white,
+      rgba(255, 255, 255, 0.15) 0.125rem,
+      transparent 2.5rem
+    ),
+    radial-gradient(
+      white,
+      rgba(255, 255, 255, 0.1) 0.1875rem,
+      transparent 3.125rem
+    ),
     radial-gradient(
       rgba(255, 255, 255, 0.4),
-      rgba(255, 255, 255, 0.1) 2px,
-      transparent 40px
+      rgba(255, 255, 255, 0.1) 0.125rem,
+      transparent 2.5rem
     );
   z-index: -1; /* Ensures the pseudo-element (::before) is behind the content */
   background-size: 150vw 150vw, 125vw 125vw, 100vw 100vw, 75vw 75vw;
@@ -110,7 +118,7 @@
   .starry-night::before {
     background-size: 75vw 75vw, 50vw 50vw, 37.5vw 37.5vw, 25vw 25vw;
     background-position: 0 0, 20px 30px, 65px 135px, 35px 50px;
-    animation: twinkle 2s infinite alternate;
+    animation: twinkle 2s infinite alternate, moveStars 10s infinite linear;
   }
 }
 
@@ -128,6 +136,24 @@
   .starry-night {
     background-size: 100vw 100vw, 75vw 75vw, 62.5vw 62.5vw, 50vw 50vw;
     background-position: 0 0, 15px 20px, 50px 100px, 25px 35px;
+  }
+  .starry-night::before {
+    background-image: radial-gradient(
+        white,
+        rgba(255, 255, 255, 0.15) 0.1rem,
+        transparent 2.5rem
+      ),
+      radial-gradient(white, rgba(255, 255, 255, 0.1) 0.08rem, transparent 2rem),
+      radial-gradient(
+        white,
+        rgba(255, 255, 255, 0.05) 0.1rem,
+        transparent 2.5rem
+      ),
+      radial-gradient(
+        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0.05) 0.08rem,
+        transparent 2rem
+      );
   }
   .weave {
     background-size: 30vw 60vw;
@@ -148,6 +174,28 @@
   .starry-night {
     background-size: 150vw 150vw, 125vw 125vw, 100vw 100vw, 75vw 75vw;
     background-position: 0 0, 10px 15px, 40px 80px, 20px 25px;
+  }
+  .starry-night::before {
+    background-image: radial-gradient(
+        white,
+        rgba(255, 255, 255, 0.1) 0.08rem,
+        transparent 1.5rem
+      ),
+      radial-gradient(
+        white,
+        rgba(255, 255, 255, 0.05) 0.06rem,
+        transparent 1rem
+      ),
+      radial-gradient(
+        white,
+        rgba(255, 255, 255, 0.03) 0.08rem,
+        transparent 1.5rem
+      ),
+      radial-gradient(
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.03) 0.06rem,
+        transparent 1rem
+      );
   }
   .weave {
     background-size: 40vw 80vw;
