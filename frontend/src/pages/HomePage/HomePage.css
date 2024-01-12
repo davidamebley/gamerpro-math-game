@@ -46,6 +46,8 @@
 .navigation-buttons .button:hover {
   transform: translateY(-3px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect on hover */
+  filter: brightness(150%); /* Brighten the text on hover */
+  transition: all 0.3s ease; /* All transition */
 }
 
 /* Mid-range devices (e.g., tablets) */
