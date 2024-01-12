@@ -15,6 +15,10 @@
   margin-bottom: 0.5em;
   color: var(--primary-color);
 }
+.hero-section h1:hover {
+  color: white;
+  transition: color 0.5s ease; /* Color transition */
+}
 
 .hero-section p {
   font-size: 1.2em;
