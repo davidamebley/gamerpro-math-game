@@ -16,8 +16,8 @@
   color: var(--primary-color);
 }
 .hero-section h1:hover {
-  color: white;
-  transition: color 0.5s ease; /* Color transition */
+  filter: brightness(150%); /* Brighten the text on hover */
+  transition: all 0.5s ease;
 }
 
 .hero-section p {
@@ -28,7 +28,7 @@
 .hero-section p:hover {
   filter: brightness(150%); /* Brighten the text on hover */
   transform: scale(1.1); /* Scale up on hover */
-  transition: all 0.3s ease; /* All transition */
+  transition: all 0.3s ease-in-out; /* All transition */
 }
 
 .navigation-buttons {
