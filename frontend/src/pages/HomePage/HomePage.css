@@ -23,6 +23,12 @@
 .hero-section p {
   font-size: 1.2em;
   margin-bottom: 1.5em;
+  transition: all 0.3s ease; /* All transition */
+}
+.hero-section p:hover {
+  filter: brightness(150%); /* Brighten the text on hover */
+  transform: scale(1.1); /* Scale up on hover */
+  transition: all 0.3s ease; /* All transition */
 }
 
 .navigation-buttons {
