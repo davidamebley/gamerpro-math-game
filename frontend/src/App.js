@@ -1,4 +1,6 @@
 import { useEffect } from 'react';
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
 
 import AppRouter from './AppRouter';
 import './App.css';
@@ -17,4 +19,4 @@ function App() {
   );
 }
 
-export default App;
+export default withAuthenticator(App);
