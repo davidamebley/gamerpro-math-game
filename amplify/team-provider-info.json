@@ -19,11 +19,11 @@
           "s3Key": "amplify-builds/mathGameLogic-4134716d53434f723276-build.zip"
         }
       },
-      "auth": {
-        "gamerpromathgame": {}
-      },
       "api": {
         "questions": {}
+      },
+      "auth": {
+        "gamerpromathgame7d2dc4237d2dc423": {}
       }
     }
   }
