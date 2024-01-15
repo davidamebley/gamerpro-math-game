@@ -36,6 +36,8 @@ const Navbar = () => {
         }
     };
 
+    const toggleDropdown = () => setDropdownOpen(!dropdownOpen);  // toggle dropdown state
+
     return (
         <nav>
             <ul>
