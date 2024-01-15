@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { getCurrentUser, fetchUserAttributes } from 'aws-amplify/auth';
+import { getCurrentUser, fetchUserAttributes, signOut } from 'aws-amplify/auth';
 
 import './Navbar.css';
 
@@ -26,6 +26,16 @@ const Navbar = () => {
 
         fetchUserInfo();
     }, []);
+
+    const signOut = async () => {
+        try {
+            await signOut();
+            setUserInfo(null);
+        } catch (error) {
+            console.log('Error signing out: ', error);
+        }
+    };
+
     return (
         <nav>
             <ul>
