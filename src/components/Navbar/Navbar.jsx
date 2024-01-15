@@ -18,7 +18,7 @@ const Navbar = () => {
         const fetchUserInfo = async () => {
             try {
                 const data = await getCurrentUserInfo();
-                setUserInfo(data.attributes.preferred_username);
+                setUserInfo(data);
             } catch (error) {
                 console.log('Error fetching user info: ', error);
             }
@@ -27,7 +27,7 @@ const Navbar = () => {
         fetchUserInfo();
     }, []);
 
-    const signOut = async () => {
+    const handleSignOut = async () => {
         try {
             await signOut();
             setUserInfo(null);
@@ -44,6 +44,23 @@ const Navbar = () => {
                 <li><NavLink exact="true" to="/" activeclassame="active">Home</NavLink></li>
                 <li><NavLink to="/game" activeclassname="active">Game</NavLink></li>
                 <li><NavLink to="/leaderboard" activeclassname="active">Leaderboard</NavLink></li>
+                {userInfo && (
+                    <li className="user-info">
+                        <div className="user-initial" onClick={toggleDropdown}>
+                            <img src={userInfo.attributes.picture} alt="user-initial" />
+                            {/* Get Username initial */}
+                            {userInfo.attributes.preferred_username[0].toUpperCase()}
+                        </div>
+                        {dropdownOpen && (
+                            <div className="dropdown-menu">
+                                <p>
+                                    {userInfo.attributes.preferred_username}
+                                    <button onClick={handleSignOut}>Sign Out</button>
+                                </p>
+                            </div>
+                        )}
+                    </li>
+                )}
             </ul>
         </nav>
     );
