@@ -121,4 +121,16 @@ nav ul li a:not(.active):focus {
   nav ul li a {
     font-size: 0.9em;
   }
+  .user-info .user-initial {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .dropdown-menu {
+    padding: 6px;
+  }
+
+  .dropdown-menu button {
+    padding: 3px 6px;
+  }
 }
