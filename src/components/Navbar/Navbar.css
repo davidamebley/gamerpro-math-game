@@ -98,6 +98,18 @@ nav ul li a:not(.active):focus {
   nav ul li a {
     font-size: 1em;
   }
+  .user-info .user-initial {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .dropdown-menu {
+    padding: 8px;
+  }
+
+  .dropdown-menu button {
+    padding: 4px 8px;
+  }
 }
 
 /* Smaller devices (e.g., smartphones) */
