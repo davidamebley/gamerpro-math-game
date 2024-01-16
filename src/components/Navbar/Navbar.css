@@ -101,22 +101,31 @@ nav ul li a:not(.active):focus {
 }
 .dropdown-menu p {
   color: var(--primary-color);
-  font-weight: bold;
   display: flex;
   align-items: center;
 }
 .dropdown-menu button {
   background-color: transparent;
-  font-weight: 400;
-  border: none;
+  border: 0px none;
   cursor: pointer;
   text-decoration: underline;
-  color: var(--accent-color);
-  border-radius: 4px;
+  color: var(--primary-color);
   transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: inherit;
+  appearance: none;
+  outline: none;
+  font: inherit;
+  text-align: inherit;
+  width: -webkit-fill-available;
+  display: block;
+  border-radius: 0.1875rem;
 }
 .dropdown-menu button:hover {
-  color: var(--primary-color);
+  color: white;
+  background-color: var(--primary-color);
+}
+.icon-signout {
+  margin-right: 0.25rem;
 }
 
 /* Mid-range devices (e.g., tablets) */
