@@ -46,6 +46,23 @@ nav ul li a:not(.active):focus {
   position: relative;
   display: inline-block;
 }
+.user-initial-btn {
+  border-radius: 0.1875rem;
+  -webkit-font-smoothing: inherit;
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  font: inherit;
+  outline: none;
+  user-select: none;
+  text-decoration: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  cursor: pointer;
+  color: white;
+}
 .user-initial {
   width: 1.875rem;
   height: 1.875rem;
@@ -56,6 +73,12 @@ nav ul li a:not(.active):focus {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  border: none;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+.user-initial:hover {
+  background-color: darken(var(--secondary-color), 10%);
 }
 .user-avatar {
   width: 2rem;
