@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { faCaretDown, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { getCurrentUser, fetchUserAttributes, signOut } from 'aws-amplify/auth';
 
 import defaultAvatar from '../../assets/default-avatar.png';
@@ -71,7 +71,7 @@ const Navbar = () => {
                                     </p>
                                 </div>
                                 <button onClick={handleSignOut} aria-label="Sign out">
-                                    Sign Out
+                                    <FontAwesomeIcon icon={faSignOutAlt} className="icon-signout" />Sign out
                                 </button>
                             </div>
                         )}
