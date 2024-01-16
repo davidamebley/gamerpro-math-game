@@ -68,14 +68,10 @@ nav ul li a:not(.active):focus {
   height: 1.875rem;
   border-radius: 50%;
   background-color: var(--secondary-color);
-  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
-  border: none;
-  font-size: 1em;
-  transition: background-color 0.3s ease;
+  margin-right: 0.25rem;
 }
 .user-initial:hover {
   background-color: darken(var(--secondary-color), 10%);
