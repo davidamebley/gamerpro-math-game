@@ -56,8 +56,11 @@ const Navbar = () => {
                 <li><NavLink to="/leaderboard" activeclassname="active">Leaderboard</NavLink></li>
                 {userInfo && (
                     <li className="user-info">
-                        <button className="user-initial" onClick={toggleDropdown} title="View more">
-                            {userInfo.preferred_username[0].toUpperCase()}↓
+                        <button className="user-initial-btn" onClick={toggleDropdown} title="View more">
+                            <div className="user-initial">
+                                {userInfo.preferred_username[0].toUpperCase()}
+                            </div>
+                            <FontAwesomeIcon icon={faCaretDown} />
                         </button>
                         {dropdownOpen && (
                             <div className="dropdown-menu">
