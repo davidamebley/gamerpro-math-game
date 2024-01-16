@@ -11,12 +11,6 @@ const Navbar = () => {
     const [userInfo, setUserInfo] = useState(null);
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
-    const getCurrentUserInfo = async () => {
-        const { username } = await getCurrentUser();
-        const attributes = await fetchUserAttributes();
-        return { username, attributes };
-    };
-
     useEffect(() => {
         const fetchUserInfo = async () => {
             try {
@@ -30,6 +24,18 @@ const Navbar = () => {
 
         fetchUserInfo();
     }, []);
+
+    useEffect(() => {
+        // Add event listener to handle clicks outside the dropdown
+        const handleOutsideClick = (event) => {
+            if (dropdownOpen && !event.target.closest('.user-info')) {
+                setDropdownOpen(false);
+            }
+        };
+
+        document.addEventListener('click', handleOutsideClick);
+        return () => document.removeEventListener('click', handleOutsideClick);
+    }, [dropdownOpen]);
 
     const handleSignOut = async () => {
         try {
