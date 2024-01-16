@@ -50,12 +50,18 @@ nav ul li a:not(.active):focus {
   width: 1.875rem;
   height: 1.875rem;
   border-radius: 50%;
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+.user-avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 .dropdown-menu {
   position: absolute;
@@ -69,21 +75,29 @@ nav ul li a:not(.active):focus {
   align-items: flex-start;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+.dropdown-menu > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 .dropdown-menu p {
-  margin: 0 0 10px 0;
-  color: var(--text-color);
+  color: var(--primary-color);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
 }
 .dropdown-menu button {
-  padding: 5px 10px;
-  background-color: var(--accent-color);
-  color: white;
+  background-color: transparent;
+  font-weight: 400;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  text-decoration: underline;
+  color: var(--accent-color);
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 .dropdown-menu button:hover {
-  background-color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 /* Mid-range devices (e.g., tablets) */
@@ -105,6 +119,10 @@ nav ul li a:not(.active):focus {
 
   .dropdown-menu {
     padding: 8px;
+  }
+  .user-avatar {
+    width: 1.5rem;
+    height: 1.5rem;
   }
 
   .dropdown-menu button {
@@ -128,6 +146,10 @@ nav ul li a:not(.active):focus {
 
   .dropdown-menu {
     padding: 6px;
+  }
+  .user-avatar {
+    width: 1.25rem;
+    height: 1.25rem;
   }
 
   .dropdown-menu button {
