@@ -48,9 +48,9 @@ const Navbar = () => {
                 <li><NavLink to="/leaderboard" activeclassname="active">Leaderboard</NavLink></li>
                 {userInfo && (
                     <li className="user-info">
-                        <div className="user-initial" onClick={toggleDropdown} title="User Profile">
-                            {userInfo.preferred_username[0].toUpperCase()}
-                        </div>
+                        <button className="user-initial" onClick={toggleDropdown} title="View more">
+                            {userInfo.preferred_username[0].toUpperCase()}↓
+                        </button>
                         {dropdownOpen && (
                             <div className="dropdown-menu">
                                 <div>
@@ -59,7 +59,7 @@ const Navbar = () => {
                                         {userInfo.preferred_username}
                                     </p>
                                 </div>
-                                <button onClick={handleSignOut} aria-label="Sign Out">
+                                <button onClick={handleSignOut} aria-label="Sign out">
                                     Sign Out
                                 </button>
                             </div>
