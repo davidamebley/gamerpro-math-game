@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getCurrentUser, fetchUserAttributes, signOut } from 'aws-amplify/auth';
 
+import defaultAvatar from '../../assets/default-avatar.png';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -17,8 +18,9 @@ const Navbar = () => {
     useEffect(() => {
         const fetchUserInfo = async () => {
             try {
-                const data = await getCurrentUserInfo();
-                setUserInfo(data);
+                const user = await getCurrentUser();
+                const attributes = await fetchUserAttributes();
+                setUserInfo({ ...user, ...attributes });
             } catch (error) {
                 console.log('Error fetching user info: ', error);
             }
@@ -46,17 +48,20 @@ const Navbar = () => {
                 <li><NavLink to="/leaderboard" activeclassname="active">Leaderboard</NavLink></li>
                 {userInfo && (
                     <li className="user-info">
-                        <div className="user-initial" onClick={toggleDropdown}>
-                            <img src={userInfo.attributes.picture} alt="user-initial" />
-                            {/* Get Username initial */}
-                            {userInfo.attributes.preferred_username[0].toUpperCase()}
+                        <div className="user-initial" onClick={toggleDropdown} title="User Profile">
+                            {userInfo.preferred_username[0].toUpperCase()}
                         </div>
                         {dropdownOpen && (
                             <div className="dropdown-menu">
-                                <p>
-                                    {userInfo.attributes.preferred_username}
-                                    <button onClick={handleSignOut}>Sign Out</button>
-                                </p>
+                                <div>
+                                    <img src={defaultAvatar} alt="User Avatar" className="user-avatar" />
+                                    <p>
+                                        {userInfo.preferred_username}
+                                    </p>
+                                </div>
+                                <button onClick={handleSignOut} aria-label="Sign Out">
+                                    Sign Out
+                                </button>
                             </div>
                         )}
                     </li>
