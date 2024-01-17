@@ -1,3 +1,5 @@
+import './GameInterface.css';
+
 const GameInterface = () => {
     return (
         <div>
