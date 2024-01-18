@@ -68,7 +68,7 @@ const GameInterface = () => {
             </div>
             <div className="answer-section">
                 <input
-                    type="text"
+                    type="number"
                     value={userAnswer}
                     onChange={handleAnswerChange}
                     placeholder="Enter your answer"
