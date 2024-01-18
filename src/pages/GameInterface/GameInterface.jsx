@@ -45,22 +45,23 @@ const GameInterface = () => {
 
     const submitAnswer = async () => {
         try {
-            const response = await axios.post('/api/validateAnswer', { question, userAnswer });     // dummy api
+            const response = await axios.post('/api/validateAnswer', { question, userAnswer }); // dummy API endpoint
 
             if (response.data.correct) {
                 setFeedback('Correct!');
-                setScore(previousScore => previousScore + 1);   // update score
+                setScore(previousScore => previousScore + 1); // update score
             } else {
                 setFeedback('Incorrect. The correct answer was ' + response.data.correctAnswer);
             }
-            fetchQuestion();    // fetch next question
-            console.log('Submitted Answer:', userAnswer);
-            // Reset Answer field
-            setUserAnswer('');
+            setUserAnswer(''); // Reset answer field
+            setFeedback('');   // Clear feedback for new question
+            setTimeLeft(30);   // Reset timer for new question
+            fetchQuestion();
         } catch (error) {
             console.error('Error submitting answer:', error);
         }
     };
+
     return (
         <div className="game-interface">
             <div className="question-section">
