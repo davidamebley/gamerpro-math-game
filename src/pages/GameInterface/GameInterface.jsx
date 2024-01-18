@@ -6,17 +6,34 @@ import './GameInterface.css';
 const GameInterface = () => {
     const [question, setQuestion] = useState('12 + 12 = ?');
     const [userAnswer, setUserAnswer] = useState('');
-    const [feedback, setFeedback] = useState('');
+    const [feedback, setFeedback] = useState('Correct!');
     const [score, setScore] = useState(0);
+    const [timeLeft, setTimeLeft] = useState(30);
 
     useEffect(() => {
         fetchQuestion();
     }, []);
 
+    useEffect(() => {
+        // Timer logic
+        if (timeLeft === 0) {
+            setFeedback('Time up!');
+            fetchQuestion();    // Fetch next question
+            return;
+        }
+
+        const timer = setTimeout(() => {
+            setTimeLeft(timeLeft - 1);
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    }, [timeLeft]);
+
     const fetchQuestion = async () => {
         try {
             const response = await axios.get('/api/generateQuestion');   // dummy api
             setQuestion(response.data.question);
+            setTimeLeft(30); // Reset timer for the new question
         } catch (error) {
             console.error('Error fetching question:', error);
         }
@@ -61,6 +78,7 @@ const GameInterface = () => {
             </div>
             {feedback && <div className="feedback-section">{feedback}</div>}
             <div className="score-section">Score: {score}</div>
+            <div className="timer-section">Time left: {timeLeft}s</div>
             {/* TODO! Additional features like timer will be added later */}
         </div>
     );
