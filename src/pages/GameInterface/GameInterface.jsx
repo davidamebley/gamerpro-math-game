@@ -74,7 +74,7 @@ const GameInterface = () => {
                     placeholder="Enter your answer"
                     className="answer-input"
                 />
-                <button type="submit" onClick={submitAnswer} className="button submit-answer-button">Submit Answer</button>
+                <button type="submit" onClick={submitAnswer} className="button submit-answer-button" disabled={feedback !== ''}>Submit Answer</button>
             </div>
             {feedback && <div className="feedback-section">{feedback}</div>}
             <div className="score-section">Score: {score}</div>
