@@ -1,0 +1,23 @@
+.game-interface {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  padding: 20px;
+}
+
+.question-section {
+  margin-bottom: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.answer-input {
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 1em;
+  border: 2px solid var(--primary-color);
+  border-radius: 4px;
+}
