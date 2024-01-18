@@ -15,10 +15,27 @@ const GameInterface = () => {
     }, []);
 
     useEffect(() => {
+        const handleTimeOut = async () => {
+            try {
+                // Fetch correct answer for the current question
+                const response = await axios.post('/api/validateAnswer', { question, userAnswer: "" });
+
+                setFeedback(`Time up! The correct answer was ${response.data.correctAnswer}`);
+
+                // Introduce a delay before fetching the next question
+                setTimeout(() => {
+                    fetchQuestion();
+                    setUserAnswer(''); // Reset answer field
+                    setTimeLeft(30);   // Reset timer for new question
+                }, 3000); // 3-second delay
+            } catch (error) {
+                console.error('Error fetching the correct answer:', error);
+            }
+        };
+
         // Timer logic
         if (timeLeft === 0) {
-            setFeedback('Time up!');
-            fetchQuestion();    // Fetch next question
+            handleTimeOut();  // Call handleTimeOut when time runs out
             return;
         }
 
@@ -27,25 +44,9 @@ const GameInterface = () => {
         }, 1000);
 
         return () => clearTimeout(timer);
-    }, [timeLeft]);
+    }, [timeLeft, question]);
 
-    const handleTimeOut = async () => {
-        try {
-            // Fetch correct answer for the current question
-            const response = await axios.post('/api/validateAnswer', { question, userAnswer: "" });
 
-            setFeedback(`Time up! The correct answer was ${response.data.correctAnswer}`);
-
-            // Introduce a delay before fetching the next question
-            setTimeout(() => {
-                fetchQuestion();
-                setUserAnswer(''); // Reset answer field
-                setTimeLeft(30);   // Reset timer for new question
-            }, 3000); // 3-second delay
-        } catch (error) {
-            console.error('Error fetching the correct answer:', error);
-        }
-    };
 
     const fetchQuestion = async () => {
         try {
