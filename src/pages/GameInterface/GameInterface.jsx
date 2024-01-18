@@ -9,6 +9,7 @@ const GameInterface = () => {
     const [feedback, setFeedback] = useState('Correct!');
     const [score, setScore] = useState(0);
     const [timeLeft, setTimeLeft] = useState(30);
+    const ROOT_API = process.env.REACT_APP_API_URL;
 
     useEffect(() => {
         fetchQuestion();
@@ -18,7 +19,7 @@ const GameInterface = () => {
         const handleTimeOut = async () => {
             try {
                 // Fetch correct answer for the current question
-                const response = await axios.post('/api/validateAnswer', { question, userAnswer: "" });
+                const response = await axios.post(`${ROOT_API}/validateAnswer`, { question, userAnswer: "" });
 
                 setFeedback(`Time up! The correct answer was ${response.data.correctAnswer}`);
 
@@ -50,7 +51,7 @@ const GameInterface = () => {
 
     const fetchQuestion = async () => {
         try {
-            const response = await axios.get('/api/generateQuestion');   // dummy api
+            const response = await axios.get(`${ROOT_API}/generateQuestion`);
             setQuestion(response.data.question);
             setTimeLeft(30); // Reset timer for the new question
         } catch (error) {
@@ -64,7 +65,7 @@ const GameInterface = () => {
 
     const submitAnswer = async () => {
         try {
-            const response = await axios.post('/api/validateAnswer', { question, userAnswer }); // dummy API endpoint
+            const response = await axios.post(`${ROOT_API}/validateAnswer`, { question, userAnswer });
 
             if (response.data.correct) {
                 setFeedback('Correct!');
@@ -99,7 +100,7 @@ const GameInterface = () => {
             {feedback && <div className="feedback-section">{feedback}</div>}
             <div className="score-section">Score: {score}</div>
             <div className="timer-section">Time left: {timeLeft}s</div>
-            {/* TODO! Additional features like timer will be added later */}
+            {/* TODO! Additional features will be added later */}
         </div>
     );
 };
