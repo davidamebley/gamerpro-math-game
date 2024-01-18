@@ -33,3 +33,9 @@
   color: var(--secondary-color);
   font-size: 1.2em;
 }
+
+.timer-section {
+  margin-top: 20px;
+  color: var(--accent-color);
+  font-weight: bold;
+}
