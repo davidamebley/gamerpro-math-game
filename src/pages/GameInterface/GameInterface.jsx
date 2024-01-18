@@ -29,6 +29,24 @@ const GameInterface = () => {
         return () => clearTimeout(timer);
     }, [timeLeft]);
 
+    const handleTimeOut = async () => {
+        try {
+            // Fetch correct answer for the current question
+            const response = await axios.post('/api/validateAnswer', { question, userAnswer: "" });
+
+            setFeedback(`Time up! The correct answer was ${response.data.correctAnswer}`);
+
+            // Introduce a delay before fetching the next question
+            setTimeout(() => {
+                fetchQuestion();
+                setUserAnswer(''); // Reset answer field
+                setTimeLeft(30);   // Reset timer for new question
+            }, 3000); // 3-second delay
+        } catch (error) {
+            console.error('Error fetching the correct answer:', error);
+        }
+    };
+
     const fetchQuestion = async () => {
         try {
             const response = await axios.get('/api/generateQuestion');   // dummy api
@@ -75,7 +93,7 @@ const GameInterface = () => {
                     placeholder="Enter your answer"
                     className="answer-input"
                 />
-                <button type="submit" onClick={submitAnswer} className="button submit-answer-button" disabled={feedback !== ''}>Submit Answer</button>
+                <button type="submit" onClick={submitAnswer} className="button submit-answer-button" disabled={feedback !== '' || timeLeft === 0}>Submit Answer</button>
             </div>
             {feedback && <div className="feedback-section">{feedback}</div>}
             <div className="score-section">Score: {score}</div>
