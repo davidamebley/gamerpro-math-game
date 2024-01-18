@@ -21,3 +21,15 @@
   border: 2px solid var(--primary-color);
   border-radius: 4px;
 }
+
+.feedback-section {
+  margin-top: 20px;
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.score-section {
+  margin-top: 20px;
+  color: var(--secondary-color);
+  font-size: 1.2em;
+}
