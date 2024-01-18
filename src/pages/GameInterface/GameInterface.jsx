@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
 import './GameInterface.css';
@@ -11,9 +11,19 @@ const GameInterface = () => {
     const [timeLeft, setTimeLeft] = useState(30);
     const ROOT_API = process.env.REACT_APP_API_URL;
 
+    const fetchQuestion = useCallback(async () => {
+        try {
+            const response = await axios.get(`${ROOT_API}/generateQuestion`);
+            setQuestion(response.data.question);
+            setTimeLeft(30); // Reset timer for the new question
+        } catch (error) {
+            console.error('Error fetching question:', error);
+        }
+    }, [ROOT_API]);
+
     useEffect(() => {
         fetchQuestion();
-    }, []);
+    }, [fetchQuestion]);
 
     useEffect(() => {
         const handleTimeOut = async () => {
@@ -45,19 +55,7 @@ const GameInterface = () => {
         }, 1000);
 
         return () => clearTimeout(timer);
-    }, [timeLeft, question]);
-
-
-
-    const fetchQuestion = async () => {
-        try {
-            const response = await axios.get(`${ROOT_API}/generateQuestion`);
-            setQuestion(response.data.question);
-            setTimeLeft(30); // Reset timer for the new question
-        } catch (error) {
-            console.error('Error fetching question:', error);
-        }
-    };
+    }, [timeLeft, question, fetchQuestion, ROOT_API]);
 
     const handleAnswerChange = (event) => {
         setUserAnswer(event.target.value);
