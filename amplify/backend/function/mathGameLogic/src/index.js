@@ -72,10 +72,15 @@ function generateNumbers(difficulty, maxRange) {
 }
 
 function validateAnswer(questionObj, userAnswer) {
-    const { question, answer } = questionObj;
+    const { answer } = questionObj;
+
+    let isCorrect = false;
+    if (userAnswer) {
+        isCorrect = answer === parseInt(userAnswer);
+    }
 
     return {
-        correct: answer === parseInt(userAnswer),
-        correctAnswer: answer
+        correct: isCorrect,
+        correctAnswer: answer // Always provide the correct answer
     };
 }
