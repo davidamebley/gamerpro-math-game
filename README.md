@@ -1,10 +1,13 @@
 # GamerPro Math Game
+
 GamerPro Math Game is a web-based application designed to provide users with an engaging and interactive way to practice basic arithmetic. The game presents a series of math questions (arithmetic problems) that are timed and vary in difficulty. Players are challenged to answer these questions correctly to accumulate points and advance through different levels.
 
 ## Why GamerPro?
+
 GamerPro Math Game transforms arithmetic practice into an enjoyable experience. It blends gaming with learning, offering timed math challenges that progress in difficulty. This approach not only sharpens math skills but also fosters quick decision-making, catering to learners seeking an interactive and effective way to improve their arithmetic.
 
 ## Features
+
 - **Dynamic Question Generation**: Math questions are generated dynamically, with varying levels of difficulty based on the user's choice.
 - **Timed Challenges**: Each question is timed, adding an element of urgency and enhancing the game's challenge.
 - **Difficulty Levels**: Players can choose between three levels of difficulty - easy, medium, and hard. The number of retries and time limits vary based on the selected difficulty.
@@ -12,6 +15,7 @@ GamerPro Math Game transforms arithmetic practice into an enjoyable experience. 
 - **User Registration**: Players can register with their first name, last name, and a unique username to appear on the leaderboard.
 
 ## Technologies Used
+
 - **Frontend**: React
 - **Backend**: Node.js, AWS Lambda
 - **Database**: AWS DynamoDB
