@@ -1,8 +1,10 @@
 # GamerPro Math Game
 
-## Overview
-
 GamerPro Math Game is a web-based application designed to provide users with an engaging and interactive way to practice basic arithmetic. The game presents a series of math questions (arithmetic problems) that are timed and vary in difficulty. Players are challenged to answer these questions correctly to accumulate points and advance through different levels.
+
+## Why GamerPro?
+
+GamerPro Math Game transforms arithmetic practice into an enjoyable experience. It blends gaming with learning, offering timed math challenges that progress in difficulty. This approach not only sharpens math skills but also fosters quick decision-making, catering to learners seeking an interactive and effective way to improve their arithmetic.
 
 ## Features
 
