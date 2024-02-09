@@ -13,8 +13,9 @@ const GameInterface = () => {
 
     const fetchQuestion = useCallback(async () => {
         try {
-            const response = await axios.get(`${ROOT_API}/generateQuestion`);
-            setQuestion(response.data.question);
+            const response = await axios.get(`${ROOT_API}/questions/generateQuestion`);
+            const responseBody = JSON.parse(response.data.body);
+            setQuestion(responseBody.question);
             setTimeLeft(30); // Reset timer for the new question
         } catch (error) {
             console.error('Error fetching question:', error);
