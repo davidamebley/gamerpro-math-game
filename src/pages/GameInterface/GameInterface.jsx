@@ -4,7 +4,7 @@ import axios from 'axios';
 import './GameInterface.css';
 
 const GameInterface = () => {
-    const [question, setQuestion] = useState('12 + 12 = ?');
+    const [question, setQuestion] = useState('');
     const [userAnswer, setUserAnswer] = useState('');
     const [feedback, setFeedback] = useState('Correct!');
     const [score, setScore] = useState(0);
@@ -23,7 +23,7 @@ const GameInterface = () => {
     }, [ROOT_API]);
 
     useEffect(() => {
-        fetchQuestion();
+        fetchQuestion();    // Call function only once when the component mounts
     }, [fetchQuestion]);
 
     useEffect(() => {
