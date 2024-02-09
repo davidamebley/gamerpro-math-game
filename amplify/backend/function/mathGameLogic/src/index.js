@@ -6,7 +6,7 @@
 exports.handler = async (event) => {
     let response;
     const operation = event.operation || "generateQuestion";
-    switch (event.operation) {
+    switch (operation) {
         case "generateQuestion":
             response = generateQuestion();
             break;
