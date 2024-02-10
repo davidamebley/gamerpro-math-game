@@ -5,6 +5,7 @@ import './GameInterface.css';
 
 const GameInterface = () => {
     const [question, setQuestion] = useState('');
+    const [answer, setAnswer] = useState('');   // Correct answer
     const [userAnswer, setUserAnswer] = useState('');
     const [feedback, setFeedback] = useState('Correct!');
     const [score, setScore] = useState(0);
@@ -16,6 +17,7 @@ const GameInterface = () => {
             const response = await axios.get(`${ROOT_API}/questions/generateQuestion`);
             const responseBody = JSON.parse(response.data.body);
             setQuestion(responseBody.question);
+            setAnswer(responseBody.answer);
             setTimeLeft(30); // Reset timer for the new question
         } catch (error) {
             console.error('Error fetching question:', error);
@@ -30,9 +32,18 @@ const GameInterface = () => {
         const handleTimeOut = async () => {
             try {
                 // Fetch correct answer for the current question
-                const response = await axios.post(`${ROOT_API}/validateAnswer`, { question, userAnswer: "" });
+                const response = await axios.post(`${ROOT_API}/questions/validateAnswer`, {
+                    operation: "validateAnswer",
+                    question: {
+                        question: question,
+                        answer: answer,
+                    },
+                    userAnswer: userAnswer,
+                });
 
-                setFeedback(`Time up! The correct answer was ${response.data.correctAnswer}`);
+                const responseBody = JSON.parse(response.data.body);
+
+                setFeedback(`Time up! The correct answer was ${responseBody.correctAnswer}`);
 
                 // Introduce a delay before fetching the next question
                 setTimeout(() => {
@@ -56,7 +67,7 @@ const GameInterface = () => {
         }, 1000);
 
         return () => clearTimeout(timer);
-    }, [timeLeft, question, fetchQuestion, ROOT_API]);
+    }, [timeLeft, question, fetchQuestion, answer, userAnswer, ROOT_API]);
 
     const handleAnswerChange = (event) => {
         setUserAnswer(event.target.value);
@@ -64,17 +75,28 @@ const GameInterface = () => {
 
     const submitAnswer = async () => {
         try {
-            const response = await axios.post(`${ROOT_API}/validateAnswer`, { question, userAnswer });
+            const response = await axios.post(`${ROOT_API}/questions/validateAnswer`, {
+                operation: "validateAnswer",
+                question: {
+                    question: question,
+                    answer: answer,
+                },
+                userAnswer: userAnswer,
+            });
 
-            if (response.data.correct) {
+            const responseBody = JSON.parse(response.data.body);
+
+            if (responseBody.correct) {
                 setFeedback('Correct!');
                 setScore(previousScore => previousScore + 1); // update score
             } else {
-                setFeedback('Incorrect. The correct answer was ' + response.data.correctAnswer);
+                setFeedback('Incorrect. The correct answer was ' + responseBody.correctAnswer);
             }
-            setUserAnswer(''); // Reset answer field
-            setFeedback('');   // Clear feedback for new question
-            setTimeLeft(30);   // Reset timer for new question
+
+            // Reset for the next question
+            setUserAnswer('');
+            setFeedback('');
+            setTimeLeft(30);
             fetchQuestion();
         } catch (error) {
             console.error('Error submitting answer:', error);
