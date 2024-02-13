@@ -49,6 +49,7 @@ const GameInterface = () => {
                 setTimeout(() => {
                     fetchQuestion();
                     setUserAnswer(''); // Reset answer field
+                    setFeedback("");    // Hide feedback after delay
                     setTimeLeft(30);   // Reset timer for new question
                 }, 3000); // 3-second delay
             } catch (error) {
