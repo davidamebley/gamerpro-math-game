@@ -78,6 +78,13 @@ const GameInterface = () => {
         setUserAnswer(event.target.value);
     };
 
+    // Allow Enter key submission
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter' && !isSubmitting && timeLeft > 0 && userAnswer !== '') {
+            submitAnswer();
+        }
+    }
+
     const submitAnswer = async () => {
         setIsSubmitting(true);  // Prevent further submissions
 
@@ -128,6 +135,7 @@ const GameInterface = () => {
                     type="number"
                     value={userAnswer}
                     onChange={handleAnswerChange}
+                    onKeyDown={handleKeyDown}
                     placeholder="Enter your answer"
                     className="answer-input"
                 />
