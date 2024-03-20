@@ -127,9 +127,14 @@ const GameInterface = () => {
 
     return (
         <div className="game-interface">
+            <div className="feedback-container">
+                {feedback && <div className="feedback-section">{feedback}</div>}
+            </div>
+
             <div className="question-section">
                 <span className="math-expression">{question}</span>
             </div>
+
             <div className="answer-section">
                 <input
                     type="number"
@@ -141,7 +146,7 @@ const GameInterface = () => {
                 />
                 <button type="submit" onClick={submitAnswer} className="button submit-answer-button" disabled={isSubmitting || feedback !== '' || timeLeft === 0}>Submit Answer</button>
             </div>
-            {feedback && <div className="feedback-section">{feedback}</div>}
+
             <div className="score-section">Score: {score}</div>
             <div className="timer-section">Time left: {timeLeft}s</div>
             {/* TODO! Additional features will be added later */}
