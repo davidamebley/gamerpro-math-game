@@ -11,6 +11,7 @@ const GameInterface = () => {
     const [score, setScore] = useState(0);
     const [timeLeft, setTimeLeft] = useState(30);
     const [timerActive, setTimerActive] = useState(true);
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const ROOT_API = process.env.REACT_APP_API_URL;
 
     const fetchQuestion = useCallback(async () => {
@@ -78,6 +79,8 @@ const GameInterface = () => {
     };
 
     const submitAnswer = async () => {
+        setIsSubmitting(true);  // Prevent further submissions
+
         try {
             const response = await axios.post(`${ROOT_API}/questions/validateAnswer`, {
                 operation: "validateAnswer",
@@ -107,6 +110,7 @@ const GameInterface = () => {
                 setTimeLeft(30);   // Reset timer for new question
                 fetchQuestion();
                 setTimerActive(true); // Reactivate timer for new question
+                setIsSubmitting(false); // Allow submissions again
             }, 3000);
 
         } catch (error) {
@@ -127,7 +131,7 @@ const GameInterface = () => {
                     placeholder="Enter your answer"
                     className="answer-input"
                 />
-                <button type="submit" onClick={submitAnswer} className="button submit-answer-button" disabled={feedback !== '' || timeLeft === 0}>Submit Answer</button>
+                <button type="submit" onClick={submitAnswer} className="button submit-answer-button" disabled={isSubmitting || feedback !== '' || timeLeft === 0}>Submit Answer</button>
             </div>
             {feedback && <div className="feedback-section">{feedback}</div>}
             <div className="score-section">Score: {score}</div>
