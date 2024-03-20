@@ -26,6 +26,7 @@ body {
   border: none;
   border-radius: 4px;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .button:hover {
