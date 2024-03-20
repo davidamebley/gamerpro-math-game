@@ -7,9 +7,10 @@ const GameInterface = () => {
     const [question, setQuestion] = useState('');
     const [answer, setAnswer] = useState('');   // Correct answer
     const [userAnswer, setUserAnswer] = useState('');
-    const [feedback, setFeedback] = useState('Correct!');
+    const [feedback, setFeedback] = useState('');
     const [score, setScore] = useState(0);
     const [timeLeft, setTimeLeft] = useState(30);
+    const [timerActive, setTimerActive] = useState(true);
     const ROOT_API = process.env.REACT_APP_API_URL;
 
     const fetchQuestion = useCallback(async () => {
@@ -29,6 +30,8 @@ const GameInterface = () => {
     }, [fetchQuestion]);
 
     useEffect(() => {
+        if (!timerActive) return;
+
         const handleTimeOut = async () => {
             try {
                 // Fetch correct answer for the current question
@@ -49,15 +52,15 @@ const GameInterface = () => {
                 setTimeout(() => {
                     fetchQuestion();
                     setUserAnswer(''); // Reset answer field
-                    setFeedback("");    // Hide feedback after delay
+                    setFeedback('');    // Hide feedback after delay
                     setTimeLeft(30);   // Reset timer for new question
+                    setTimerActive(true); // Reactivate timer for new question
                 }, 3000); // 3-second delay
             } catch (error) {
                 console.error('Error fetching the correct answer:', error);
             }
         };
 
-        // Timer logic
         if (timeLeft === 0) {
             handleTimeOut();  // Call handleTimeOut when time runs out
             return;
@@ -68,7 +71,7 @@ const GameInterface = () => {
         }, 1000);
 
         return () => clearTimeout(timer);
-    }, [timeLeft, question, fetchQuestion, answer, userAnswer, ROOT_API]);
+    }, [timeLeft, timerActive, question, fetchQuestion, answer, userAnswer, ROOT_API]);
 
     const handleAnswerChange = (event) => {
         setUserAnswer(event.target.value);
@@ -94,11 +97,18 @@ const GameInterface = () => {
                 setFeedback('Incorrect. The correct answer was ' + responseBody.correctAnswer);
             }
 
-            // Reset for the next question
-            setUserAnswer('');
-            setFeedback('');
-            setTimeLeft(30);
-            fetchQuestion();
+            // Deactivate the timer
+            setTimerActive(false);
+
+            // A delay before resetting for the next question
+            setTimeout(() => {
+                setUserAnswer('');
+                setFeedback('');
+                setTimeLeft(30);   // Reset timer for new question
+                fetchQuestion();
+                setTimerActive(true); // Reactivate timer for new question
+            }, 3000);
+
         } catch (error) {
             console.error('Error submitting answer:', error);
         }
