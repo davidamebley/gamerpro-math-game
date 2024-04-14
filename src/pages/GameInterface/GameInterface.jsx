@@ -1,9 +1,10 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import axios from 'axios';
 
 import './GameInterface.css';
 
 const GameInterface = () => {
+    const timeOutRef = useRef(null);
     const [question, setQuestion] = useState('');
     const [answer, setAnswer] = useState('');   // Correct answer
     const [userAnswer, setUserAnswer] = useState('');
@@ -67,11 +68,11 @@ const GameInterface = () => {
             return;
         }
 
-        const timer = setTimeout(() => {
+        timeOutRef.current = setTimeout(() => {
             setTimeLeft(timeLeft - 1);
         }, 1000);
 
-        return () => clearTimeout(timer);
+        return () => clearTimeout(timeOutRef.current); // clear when effect reruns
     }, [timeLeft, timerActive, question, fetchQuestion, answer, userAnswer, ROOT_API]);
 
     const handleAnswerChange = (event) => {
@@ -86,6 +87,7 @@ const GameInterface = () => {
     }
 
     const submitAnswer = async () => {
+        clearTimeout(timeOutRef.current); // Clear any timeout when submitting an answer
         setIsSubmitting(true);  // Prevent further submissions
 
         try {
